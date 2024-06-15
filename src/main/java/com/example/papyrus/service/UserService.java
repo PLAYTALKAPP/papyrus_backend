@@ -11,4 +11,5 @@ public interface UserService {
   int addUser(UserDTO userDTO);
   int userIdCheck(String userId);
   UserDTO loginUser(String userId, String userPw);
+  UserDTO findUserById(String userId);
 }

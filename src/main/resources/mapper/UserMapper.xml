@@ -16,4 +16,7 @@
     <select id="loginUser" resultType="com.example.papyrus.dto.UserDTO">
         SELECT * FROM users WHERE user_id=#{user_id} AND user_pw = #{user_pw};
     </select>
+    <select id="findUserById" resultType="com.example.papyrus.dto.UserDTO">
+        SELECT * FROM users WHERE user_id=#{user_id}
+    </select>
 </mapper>

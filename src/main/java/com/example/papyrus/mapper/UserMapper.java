@@ -11,4 +11,5 @@ public interface UserMapper {
   int signUpUser(UserDTO user);
   int userIdCheck(String user_id);
   UserDTO loginUser(String user_id, String user_pw);
+  UserDTO findUserById(String user_id);
 }
