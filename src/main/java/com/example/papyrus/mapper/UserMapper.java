@@ -8,4 +8,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
   List<UserDTO> getUserList();
+  int signUpUser(UserDTO user);
+  int userIdCheck(String user_id);
+  UserDTO loginUser(String user_id, String user_pw);
 }
