@@ -12,4 +12,5 @@ public interface UserMapper {
   int userIdCheck(String user_id);
   UserDTO loginUser(String user_id, String user_pw);
   UserDTO findUserById(String user_id);
+  int deleteUser(String user_id, String user_pw);
 }

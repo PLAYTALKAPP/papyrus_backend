@@ -7,6 +7,7 @@
         VALUES
             (#{user_id}, #{user_name}, #{user_pw}, #{phone}, #{email}, #{profile_img})
     </insert>
+    <delete id="deleteUser"></delete>
     <select id="getUserList" resultType="com.example.papyrus.dto.UserDTO">
         SELECT * FROM users
     </select>

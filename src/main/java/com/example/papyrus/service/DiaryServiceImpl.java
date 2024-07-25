@@ -20,7 +20,17 @@ public class DiaryServiceImpl implements DiaryService {
     }
 
     @Override
+    public List<DiaryDTO> getUserDiaryList(String user_id) {
+        return diaryMapper.getUserDiaryList(user_id);
+    }
+
+    @Override
     public DiaryDTO getDiaryId(long diary_id) {
         return diaryMapper.getDiaryById(diary_id);
+    }
+
+    @Override
+    public int addDiary(DiaryDTO diaryDTO) {
+        return diaryMapper.addDiary(diaryDTO);
     }
 }

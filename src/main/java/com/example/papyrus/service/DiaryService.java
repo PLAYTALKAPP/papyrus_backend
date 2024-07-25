@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface DiaryService {
     List<DiaryDTO> getDiaryList();
+    List<DiaryDTO> getUserDiaryList(String user_id);
     DiaryDTO getDiaryId(long diary_id);
+    int addDiary(DiaryDTO diaryDTO);
 }

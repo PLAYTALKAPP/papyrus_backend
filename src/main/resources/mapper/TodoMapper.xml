@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.papyrus.mapper.TodoMapper">
+    <resultMap id="todoListResultMap" type="com.example.papyrus.dto.TodoListDTO">
+        <id property="todolist_id" column="todolist_id" />
+        <result property="todo_id" column="todo_id" />
+        <result property="todo_checking" column="todo_checking" />
+        <result property="todo_cate" column="todo_cate" />
+    </resultMap>
+
+    <insert id="addTodo" useGeneratedKeys="true"  keyProperty="todo_id">
+        INSERT INTO todo (todo_cate,user_id) VALUES (#{todo_cate},#{user_id});
+    </insert>
+
+    <insert id="addTodoListByTodo_id" useGeneratedKeys="true"  keyProperty="todolist_id">
+        INSERT INTO todo_list (todo_id,description,todo_checking) VALUES (#{todo_id},#{description},#{todo_checking});
+    </insert>
+    <select id="getTodoListByUserId" resultType="com.example.papyrus.dto.TodoDTO">
+        SELECT *
+        FROM todo
+        WHERE user_id = #{user_id};
+    </select>
+    <select id="getTodoListByTodoId" resultMap="todoListResultMap">
+        SELECT tl.*,t.todo_cate
+        FROM todo_list tl
+                 JOIN todo t
+                      ON tl.todo_id = t.todo_id
+        WHERE tl.todo_id = #{todo_id};
+    </select>
+</mapper>
